@@ -1,0 +1,50 @@
+<nav class="pt-0 navbar navbar-expand-lg navbar-light bg-light mb-5">
+  <a class="navbar-brand" routerLink="../">School App</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <!-- <div class="dropdown">
+        <button routerLink="../" class="dropbtn">Home</button>
+      </div> -->
+      
+      <div class="dropdown">
+        <button class="dropbtn def-pointer">Employee Info</button>
+        <div class="dropdown-content">
+          <a class="nav-item nav-link" routerLink="../employee/shift">View Shifts</a>
+          <a class="nav-item nav-link" routerLink="../employee/break">View Breaks</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="def-pointer dropbtn">Students</button>
+        <div class="dropdown-content">
+          <a class="nav-item nav-link" routerLink="../students/biostudents">Bio Students</a>
+          <a class="nav-item nav-link" routerLink="../students/mathstudents">Math Students</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="def-pointer dropbtn">Others</button>
+        <div class="dropdown-content">
+          <a class="nav-item nav-link" routerLink="../others/maps">Maps</a>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex">
+      <div>
+        <button *ngIf="removeLogin()" routerLink="../login" class="hov dropbtn">Login</button>
+      </div>
+      <div>
+        <button *ngIf="removeLogout()" (click)="logout()" class=" dropbtn hov">Logout</button>
+      </div>
+    </div>
+  </div>
+</nav>

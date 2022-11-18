@@ -1,0 +1,35 @@
+<div class="custom mt-4 ml-3">
+  <div class="mid d-flex justify-content-between">
+    <div class="mid " >
+      <h2 class="mb-0">{{ title }}</h2>
+    </div>
+    <div class="mt-2">
+      <a class="add-form " routerLink="../../forms/studentsform">Add Record</a>
+    </div>
+  </div>
+</div>
+<div class="container">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Class</th>
+          <th>Hostelites</th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        <tr *ngFor = "let row of rows">
+          <td>{{ row.ID }}</td>
+          <td>{{ row.Name }}</td>
+          <td>{{ row.Age }}</td>
+          <td>{{ row.Gender }}</td>
+          <td>{{ row.Class }}</td>
+          <td>{{ row.hostelites }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

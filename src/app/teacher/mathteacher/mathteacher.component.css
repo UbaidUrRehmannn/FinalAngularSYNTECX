@@ -1,0 +1,46 @@
+.table-hover tbody tr:hover td,
+.table-hover tbody tr:hover th {
+  background-color: rgb(253, 153, 94) !important;
+}
+.custom {
+  padding: 0.5rem 6.5rem;
+  background-color: beige;
+  margin: auto;
+}
+.mid {
+  margin: auto;
+}
+.add-form {
+  text-decoration: none;
+  background-color: rgb(253, 153, 94) !important;
+  color: white;
+  padding: 8px;
+  border-radius: 7px;
+}
+
+.pe{
+  cursor: pointer;
+}
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+.modal-title {
+  margin-bottom: 0;
+  line-height: var(--bs-modal-title-line-height) !important;
+  font-size: 1.25rem !important;
+}
+.w-33{
+  width: 33% !important;
+}

@@ -1,0 +1,307 @@
+<div class="customtitle mt-4 ml-3">
+  <div class="mid d-flex justify-content-between">
+    <div class="mid">
+      <h2 class="mb-0">{{ title }}</h2>
+    </div>
+  </div>
+</div>
+<div class="main-wrapper mb-5 mt-5">
+  <form
+    [formGroup]="reactiveForm"
+    (ngSubmit)="onSubmit()"
+    style="
+      border: 1px solid cadetblue;
+      margin: 0 3rem;
+      box-shadow: 5px 0px 15px 7px rgb(236, 148, 222);
+    "
+    class="custom"
+    id="form1"
+  >
+    <div
+      formGroupName="personalDetails"
+      style="margin-left: 4rem"
+      class="last in-form"
+    >
+      <div class="form-group">
+        <div class="new-wrapper">
+          <label for="fname">First Name:</label>
+          <input
+            formControlName="fname"
+            name="fname"
+            placeholder="First Name"
+            class="form-control"
+            type="text"
+            id="fname"
+          />
+        </div>
+
+        <p
+          *ngIf="
+            reactiveForm.get('personalDetails.fname')?.errors?.['required'] &&
+            reactiveForm.get('personalDetails.fname')?.touched
+          "
+          class="error-msg"
+        >
+          First Name is required
+        </p>
+        <!-- *ngIf="
+          !reactiveForm.get('personalDetails.fname')?.valid &&
+          reactiveForm.get('personalDetails.fname')?.touched
+        " -->
+        <p
+          *ngIf="reactiveForm.get('personalDetails.fname')?.errors?.['pattern'] "
+          class="error-msg"
+        >
+          Name cannot have numbers in it
+        </p>
+      </div>
+      <div class="oneline form-group">
+        <label for="lname">Last Name:</label>
+        <input
+          formControlName="lname"
+          placeholder="Last Name"
+          class="form-control"
+          type="text"
+          id="lname"
+          name="lname"
+        />
+      </div>
+      <div class="oneline form-group">
+        <label for="uname">Username:</label>
+        <input
+          formControlName="uname"
+          placeholder="Username"
+          class="form-control"
+          type="text"
+          id="uname"
+          name="uname"
+        />
+      </div>
+      <div class="form-group">
+        <div class="new-wrapper">
+          <label for="inputEmail4">Email:</label>
+          <input
+            formControlName="email"
+            type="email"
+            class="form-control"
+            id="inputEmail4"
+            placeholder="Email"
+          />
+        </div>
+        <p
+          *ngIf="
+            !reactiveForm.get('personalDetails.email')?.valid &&
+            reactiveForm.get('personalDetails.email')?.touched
+          "
+          class="error-msg"
+        >
+          Email is required
+        </p>
+      </div>
+    </div>
+
+    <div class="last in-form">
+      <div formGroupName="personalDetails" class="form-group">
+        <div class="new-wrapper">
+          <label for="inputPassword4">Password:</label>
+          <input
+            formControlName="password"
+            type="password"
+            class="form-control"
+            id="inputPassword4"
+            placeholder="Password"
+          />
+        </div>
+        <!-- <p
+          *ngIf="
+            !reactiveForm.get('personalDetails.password')?.valid &&
+            reactiveForm.get('personalDetails.password')?.touched
+          "
+          class="error-msg"
+        >
+          Password is required
+        </p> -->
+        <p
+          *ngIf="reactiveForm.get('personalDetails.password')?.errors?.['required'] &&
+        reactiveForm.get('personalDetails.password')?.touched"
+          class="error-msg"
+        >
+          Password is required
+        </p>
+        <p
+          *ngIf="reactiveForm.get('personalDetails.password')?.errors?.['minlength'] "
+          class="error-msg"
+        >
+          Password should be 8 characters long
+        </p>
+      </div>
+
+      <div class="oneline form-group">
+        <label for="joining">Joining:</label>
+        <input
+          formControlName="joining"
+          class="form-control"
+          type="date"
+          id="joining"
+        />
+      </div>
+      <div class="oneline form-group">
+        <label for="sitelink">Portfolio:</label>
+        <input
+          formControlName="portfolio"
+          class="form-control"
+          type="url"
+          id="sitelink"
+        />
+      </div>
+      <div class="oneline form-group">
+        <label for="contactnum">Telephone:</label>
+        <input
+          formControlName="phone"
+          id="contactnum"
+          class="form-control"
+          type="tel"
+        />
+      </div>
+    </div>
+    <div style="margin-right: 4rem" class="last in-form">
+      <div class="oneline form-group">
+        <label for="inputAddress">Address:</label>
+        <input
+          formControlName="address"
+          type="text"
+          class="form-control"
+          id="inputAddress"
+          placeholder="1234 Main St"
+        />
+      </div>
+      <div class="oneline form-group">
+        <label for="inputCity">City:</label>
+        <input
+          formControlName="city"
+          type="text"
+          class="form-control"
+          id="inputCity"
+        />
+      </div>
+      <div class="oneline form-group">
+        <label for="inputState">State:</label>
+        <select
+          formControlName="state"
+          id="inputState"
+          class="form-control selectwm"
+        >
+          <option selected>Choose...</option>
+          <option>Punjab</option>
+          <option>Sindh</option>
+          <option>KPK</option>
+          <option>AJK</option>
+          <option>Islamabad</option>
+          <option>FATA</option>
+        </select>
+      </div>
+      <div class="oneline form-group">
+        <label for="inputZip">Zip:</label>
+        <input
+          formControlName="zip"
+          type="text"
+          class="form-control"
+          id="inputZip"
+        />
+      </div>
+    </div>
+    <div style="gap: 50px" class="last in-form m-0 oneline form-group">
+      <div style="margin-left: 4rem !important" class="oneline form-group m-0">
+        <label class="mr-5">Gender:</label>
+        <input
+          class="form-check-input form-control"
+          type="radio"
+          name="gender"
+          id="Male"
+          [value]="1"
+          formControlName="gender"
+          style="margin-right: 1rem; height: 1.5rem"
+        />
+        <label class="mr-5 form-check-label font-weight-normal" for="Male">
+          Male
+        </label>
+
+        <input
+          formControlName="gender"
+          style="margin-right: 1rem; height: 1.5rem"
+          class="form-check-input form-control"
+          type="radio"
+          name="gender"
+          id="Female"
+          [value]="2"
+        />
+        <label class="form-check-label font-weight-normal" for="Female">
+          Female
+        </label>
+      </div>
+      <div class="oneline form-group m-0">
+        <label for="exampleDataList" style="margin-left: 2rem"
+          >Special Role:</label
+        >
+        <input
+          formControlName="role"
+          class="w-auto-auto form-control"
+          list="datalistOptions"
+          id="exampleDataList"
+          placeholder="Type to search..."
+        />
+
+        <datalist id="datalistOptions" multiple>
+          <option value="Vice Principle"></option>
+          <option value="Head Teacher"></option>
+          <option value="PT Teacher"></option>
+          <option value="Sports Incharge"></option>
+          <option value="PTM Incharge"></option>
+        </datalist>
+      </div>
+      <div style="margin-right: 4rem" class="oneline form-group">
+        <label class="mr-custom1">Experience(in Years):</label>
+        <input
+          formControlName="experience"
+          class="form-control ml-5"
+          type="number"
+          min="0"
+          max="50"
+          step="1"
+          value="0"
+        />
+      </div>
+    </div>
+    <div
+      style="margin-bottom: 0 !important"
+      class="oneline form-group selectwm last mx-5"
+    >
+      <label class="mr-5" for=" inputAddress2 ">Bio:</label>
+      <textarea
+        formControlName="bio"
+        type="text"
+        class="form-control"
+        id="inputAddress2"
+        rows="5"
+        cols="60"
+        form="form1"
+      ></textarea>
+    </div>
+    <div class="oneline form-group selectwm last mx-5">
+      <button class="btn btn-success" type="submit">Submit</button>
+      <!-- [disabled]="reactiveForm.invalid" -->
+      <button class="btn btn-danger" type="reset">Reset</button>
+    </div>
+  </form>
+</div>
+
+<!-- ------------------------------------------ -->
+
+<!-- ngModel
+name="fname"
+#firstName="ngModel"
+(change)="log(firstName)"
+
+
+Validators.required
+-->

@@ -1,0 +1,303 @@
+<div class="custom mt-4">
+  <div class="mid d-flex justify-content-between">
+    <div class="d-flex align-items-center">
+      <h2 class="mb-0">{{ title }}</h2>
+    </div>
+    <div class="d-flex align-items-center">
+      <div>
+        <!-- routerLink="../../forms/teachersform" -->
+        <button
+          (click)="changeBtn()"
+          type="button"
+          data-toggle="modal"
+          data-target="#exampleModalCenter"
+          id="myBtn"
+          class="add-form no-border"
+        >
+          Add Shift
+        </button>
+      </div>
+      <div>
+        <form class="ml-4 form-inline active-cyan-4">
+          <!-- (onkeyup)="searchFunction($event)" -->
+          <input
+            [(ngModel)]="searchval"
+            name="searchBox"
+            id="search"
+            class="form-control form-control-sm mr-3 w-75"
+            type="search"
+            placeholder="Search..."
+            aria-label="Search"
+          />
+          <i class="fas fa-search" aria-hidden="true"></i>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Starts -->
+<div
+  class="modal fade"
+  id="exampleModalCenter"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <form [formGroup]="reactiveForm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5
+            *ngIf="updatebtn; else notPk"
+            class="modal-title"
+            id="exampleModalLongTitle"
+          >
+            Update Shift
+          </h5>
+          <ng-template #notPk>
+            <h5 class="modal-title" id="exampleModalLongTitle">Add Shift</h5>
+          </ng-template>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label
+              style="color: #7c7c7c"
+              for="formGroupExampleInput"
+              class="form-label"
+              >Title</label
+            >
+            <div>
+              <span class="d-flex align-items-center">
+                <i
+                  style="
+                    position: absolute;
+                    left: 22px;
+                    color: #ababab;
+                    top: 56px;
+                  "
+                  class="fa fa-user"
+                  aria-hidden="true"
+                >
+                </i>
+                <input
+                  formControlName="title"
+                  style="padding-left: 20px"
+                  type="text"
+                  class="form-control form-group"
+                  id="formGroupExampleInput"
+                  placeholder="Enter Title"
+                />
+              </span>
+            </div>
+            <div
+              class="form-group d-flex align-items-center justify-content-between"
+            >
+              <label for="start_time" class="my-1 text-secondary"
+                >Start Time</label
+              >
+              <input
+                type="time"
+                class="w-33 form-control"
+                id="appt"
+                name="appt"
+                formControlName="startTime"
+              />
+
+              <label for="end_time" class="my-1 text-secondary">End Time</label>
+              <input
+                type="time"
+                class="w-33 form-control"
+                id="appt"
+                name="appt"
+                style="border-radius: 8px"
+                formControlName="endTime"
+              />
+            </div>
+            <!-- <div
+              class="d-flex align-items-center justify-content-between"
+              style="color: #7c7c7c"
+            >
+              Start Time:
+
+              <ngb-timepicker formControlName="startTime"></ngb-timepicker>
+
+              End Time:
+
+              <ngb-timepicker formControlName="endTime"></ngb-timepicker>
+            </div> -->
+            <div class="form-group">
+              <label style="color: #7c7c7c" for="exampleFormControlTextarea1"
+                >Description</label
+              >
+              <span class="d-flex align-items-center">
+                <i
+                  style="
+                    position: absolute;
+                    left: 22px;
+                    color: #ababab;
+                    bottom: 146px;
+                  "
+                  class="fa-solid fa-clock"
+                  aria-hidden="true"
+                >
+                </i>
+                <textarea
+                  formControlName="description"
+                  placeholder="Enter Description"
+                  style="padding-left: 20px"
+                  class="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="3"
+                ></textarea>
+              </span>
+            </div>
+            <div
+              style="margin: 0; padding: 8px"
+              class="alert alert-primary"
+              role="alert"
+            >
+              <strong>Note!</strong> Please save the shifts first.
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            (click)="updateData()"
+            *ngIf="updatebtn; else upd"
+            type="button"
+            class="btn btn-primary"
+            data-dismiss="modal"
+          >
+            Update Shift
+          </button>
+          <ng-template #upd>
+            <button
+              (click)="onSubmit()"
+              data-dismiss="modal"
+              [disabled]="reactiveForm.invalid"
+              type="button"
+              class="btn btn-primary"
+            >
+              Add Shift
+            </button>
+          </ng-template>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal Ends -->
+
+<div class="mt-4 container">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Shift Name</th>
+        <th>Description</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let row of rows | searchShift: searchval">
+        <td>{{ row.shift_name }}</td>
+        <td>{{ row.shift_desc }}</td>
+        <td>{{ row.shift_start_time }}</td>
+        <td>{{ row.shift_end_time }}</td>
+        <td>
+          <a
+            (click)="getId(row.shift_id)"
+            data-toggle="modal"
+            data-target="#exampleModal"
+            class="pe"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Delete Shift "
+          >
+            <i class="mr-2 fa fa-trash" aria-hidden="true"></i
+          ></a>
+          <a
+            data-toggle="modal"
+            data-target="#exampleModalCenter"
+            (click)="editShift(row.shift_id)"
+            class="pe"
+            
+            data-placement="top"
+            title="Edit Shift "
+            ><i class="fa-solid fa-pen"></i
+          ></a>
+          <!-- (click)="getId(row.shift_id)" -->
+
+          <a
+            (click)="paramRoute(row.shift_id)"
+            style="margin-left: 6px"
+            class="pe"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="View Breaks "
+            ><i class="fas fa-coffee"></i
+          ></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- Modal for delete button Starts -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Are You Sure!</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        This action will remove entry from database.
+        <span class="text-danger">This operation can not be undone</span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Cancel
+        </button>
+        <button
+          data-dismiss="modal"
+          (click)="deleteItem()"
+          type="button"
+          class="btn btn-primary"
+        >
+          Yes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal for delete button Ends -->

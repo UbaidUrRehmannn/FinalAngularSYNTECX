@@ -1,0 +1,257 @@
+<div class="customtitle mt-4 ml-3">
+  <div class="mid d-flex justify-content-between">
+    <div class="mid">
+      <h2 class="mb-0">{{ title }}</h2>
+    </div>
+  </div>
+</div>
+<div class="main-wrapper mb-5 mt-5">
+  <!-- d-flex justify-content-between -->
+  <form
+    style="
+      border: 1px solid cadetblue;
+      margin: 0 3rem;
+      box-shadow: 5px 0px 15px 7px cadetblue;
+    "
+    class="custom"
+    id="form1"
+  >
+    <div style="margin-left: 4rem" class="last in-form">
+      <div class="oneline form-group">
+        <label for="fname">First Name:</label>
+        <input
+        (input)="searchval($event)"
+          placeholder="First Name"
+          class="form-control"
+          type="text"
+          id="fname"
+          autofocus
+        />
+      </div>
+      <div class="oneline form-group">
+        <label for="lname">Last Name:</label>
+        <input
+          placeholder="Last Name"
+          class="form-control"
+          type="text"
+          id="lname"
+          name="lname"
+        />
+      </div>
+      <div class="oneline form-group">
+        <label for="uname">Username:</label>
+        <input
+          placeholder="Username"
+          class="form-control"
+          type="text"
+          id="uname"
+          name="uname"
+        />
+      </div>
+      <div class="oneline form-group">
+        <label for="inputEmail4">Email:</label>
+        <input
+          type="email"
+          class="form-control"
+          id="inputEmail4"
+          placeholder="Email"
+        />
+      </div>
+    </div>
+
+    <div class="last in-form">
+      <div class="oneline form-group">
+        <label for="inputPassword4">Password:</label>
+        <input
+          type="password"
+          class="form-control"
+          id="inputPassword4"
+          placeholder="Password"
+        />
+      </div>
+      <div class="oneline form-group">
+        <label for="joindate">DOB:</label>
+        <input class="form-control" type="date" id="joindate" />
+      </div>
+      <div class="oneline form-group">
+        <label for="sitelink">Portfolio:</label>
+        <input class="form-control" type="url" id="sitelink" />
+      </div>
+      <div class="oneline form-group">
+        <label for="contactnum">Contact #:</label>
+        <input id="contactnum" class="form-control" type="tel" />
+      </div>
+    </div>
+    <div style="margin-right: 4rem" class="last in-form">
+      <div class="oneline form-group">
+        <label for="inputAddress">Address:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputAddress"
+          placeholder="1234 Main St"
+        />
+      </div>
+      <div class="oneline form-group">
+        <label for="inputCity">City:</label>
+        <input type="text" class="form-control" id="inputCity" />
+      </div>
+      <div class="oneline form-group">
+        <label for="inputState">State:</label>
+        <select id="inputState" class="form-control selectwm">
+          <option selected>Choose...</option>
+          <option>Punjab</option>
+          <option>Sindh</option>
+          <option>KPK</option>
+          <option>AJK</option>
+          <option>Islamabad</option>
+          <option>FATA</option>
+        </select>
+      </div>
+      <div class="oneline form-group">
+        <label for="inputZip">Zip:</label>
+        <input type="text" class="form-control" id="inputZip" />
+      </div>
+    </div>
+    <div style="gap: 50px" class="last in-form m-0 oneline form-group">
+      <div style="margin-left: 8rem !important" class="oneline form-group m-0">
+        <label class="mr-5">Gender:</label>
+        <input
+          style="margin-right: 1rem; height: 1.5rem"
+          class="form-check-input form-control"
+          type="radio"
+          name="Gender"
+          id="Male"
+        />
+        <label class="mr-5 form-check-label font-weight-normal" for="Male"> Male </label>
+
+        <input
+          style="margin-right: 1rem; height: 1.5rem"
+          class="form-check-input form-control"
+          type="radio"
+          name="Gender"
+          id="Female"
+        />
+        <label class="form-check-label font-weight-normal" for="Female"> Female </label>
+      </div>
+
+      <div style="margin-right: 8rem" class="oneline form-group">
+        <label class="mr-custom1">Year Enrolled:</label>
+        <input
+          class="form-control ml-5"
+          type="number"
+          min="2000"
+          max="2023"
+          step="1"
+          value="2000"
+        />
+      </div>
+    </div>
+    <div>
+      <div class="oneline-special-skills form-group m-0">
+        <label for="exampleDataList" style="margin-right: 2rem"
+          >Special Skill:</label
+        >
+        <div class="form-check">
+          <div class="mr-6">
+            <input
+              style="margin-top: 19px"
+              class="form-check-input "
+              type="checkbox"
+              value=""
+              id="CheckDefault1"
+            />
+            <label class="form-check-label font-weight-normal" for="CheckDefault1">
+              Swimmimg
+            </label>
+          </div>
+
+          <div class="mr-6">
+            <input
+              style="margin-top: 19px"
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="CheckDefault2"
+            />
+            <label class="form-check-label font-weight-normal" for="CheckDefault2">
+              Running
+            </label>
+          </div>
+
+          <div>
+            <input
+              style="margin-top: 19px"
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="CheckDefault3"
+            />
+            <label class="form-check-label font-weight-normal" for="CheckDefault3">
+              Management
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="oneline form-group selectwm last mx-5">
+      <label class="mr-5 width" for=" inputAddress2 ">About ME:</label>
+      <textarea
+        type="text"
+        class="form-control"
+        id="inputAddress2"
+        rows="5"
+        cols="60"
+        form="form1"
+      ></textarea>
+    </div>
+    <div class="oneline form-group selectwm last mx-5">
+      <button class="btn btn-success" type="button">Submit</button>
+      <button class="btn btn-danger" type="reset">Reset</button>
+    </div>
+  </form>
+</div>
+<div class="container" [hidden]="display">
+  Add Reactive Forms Module. The first step in building up reactive forms in
+  Angular is to add the reactive forms module.
+  <br/>
+  <b> the num is {{num}}</b>
+  <br/>
+  <button class="btn btn-success mb-5" (click)="func1()" >Change Number</button>
+  <br/>
+  <br/>
+  <br/>
+  <form>
+
+    <label for="search">search</label>
+          <input
+            (input)="searchval($event)"
+            placeholder="Search..."
+            class="form-control mb-5"
+            type="text"
+            id="search"
+            autofocus
+          />
+          <br/>
+          <button type="submit" class="btn btn-success mb-5" (click)="searchval($event)" > click to log Value entered in search field</button>
+          <p>Value entered in input: <b>{{searchValue}} </b></p>
+  </form>
+</div>
+<hr/>
+<div class="container" >
+  <label for="search-2">search</label>
+  <input
+    [(ngModel)]="searchValue2"
+    placeholder="Search..."
+    class="form-control mb-5"
+    type="text"
+    id="search-2"
+    autofocus
+  />
+  <br/>
+  <br/>
+  <br/>
+  <p>Value entered in input: <b>{{searchValue2}} </b></p>
+</div>
+<!-- --------------------------------------------------------------------------------------- -->
+

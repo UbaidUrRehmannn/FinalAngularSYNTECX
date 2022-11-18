@@ -1,0 +1,19 @@
+.card-img-top {
+    margin-top: 1rem;
+    height: 350px;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    border-radius: 123px;
+}
+.custom1{
+    width: 90%;
+}
+.card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+    align-items: center;
+}
+.card-body{
+    text-align: center;
+}

@@ -1,0 +1,138 @@
+<div
+*ngIf="y === 0"
+style="display: flex;"
+  id="alrclose"
+  class="d-flex justify-content-between align-items-center alert alert-warning alert-dismissible fade show"
+  role="alert"
+>
+  <div class=""><strong>OOPS! ERROR:</strong> {{ x }}</div>
+  <div>
+    <button
+      (click)="closeAlert()"
+      type="button"
+      class="btn close"
+      data-dismiss="alert"
+      aria-label="Close"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
+
+<div class="container">
+  <form class="form-wrapper" [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+    <div>
+      <!-- Email input -->
+      <div class="px-5 d-flex justify-content-between form-outline mb-4">
+        <label class="align-self-center form-label" for="number"
+          ><b>Email Address:</b></label
+        >
+        <input
+          formControlName="number"
+          name="number"
+          type="text"
+          id="number"
+          class="w-50 form-control"
+          placeholder="Enter your Phone Number"
+        />
+      </div>
+      <p
+        *ngIf="reactiveForm.get('number')?.errors?.['required'] &&
+            reactiveForm.get('number')?.touched
+          "
+        class="text-danger"
+      >
+        Phone Number is required
+      </p>
+      <p
+        *ngIf="reactiveForm.get('number')?.errors?.['pattern'] "
+        class="text-danger-long-err"
+      >
+        Phone Number Invalid
+      </p>
+
+      <!-- Password input -->
+      <div
+        class="px-5 d-flex justify-content-between form-outline mb-4 dark:bg-[#4598ee]"
+      >
+        <label class="align-self-center form-label" for="password"
+          ><b>Password:</b></label
+        >
+        <input
+          formControlName="password"
+          placeholder="Enter Password"
+          type="password"
+          id="password"
+          class="w-50 form-control"
+        />
+      </div>
+      <p
+        *ngIf="reactiveForm.get('password')?.errors?.['required'] &&
+        reactiveForm.get('password')?.touched"
+        class="text-danger"
+      >
+        Password is required
+      </p>
+      <p
+        *ngIf="reactiveForm.get('password')?.errors?.['minlength'] "
+        class="text-danger"
+      >
+        Password should be 8 characters long
+      </p>
+    </div>
+
+    <!-- 2 column grid layout for inline styling -->
+    <div class="row mb-4">
+      <div class="col d-flex justify-content-center">
+        <!-- <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
+          id="form2Example31"
+          checked
+        />
+        <label class="form-check-label" for="form2Example31">
+          Remember me
+        </label>
+      </div> -->
+        <button
+          [disabled]="reactiveForm.invalid"
+          type="submit"
+          class="btn btn-primary mb-4"
+        >
+          Sign in
+        </button>
+      </div>
+
+      <div class="col">
+        <!-- Simple link -->
+        <a href="#!">Forgot password?</a>
+      </div>
+    </div>
+
+    <!-- Submit button -->
+
+    <!-- Register buttons -->
+    <div class="text-center">
+      <p>Not a member? <a href="#!">Register NOW!</a></p>
+      <p>or <b>sign up</b> with:</p>
+      <button type="button" class="btn btn-link btn-floating mx-1">
+        <fa-icon [icon]="faFacebookF"></fa-icon>
+        <!-- <i class="fas fa-user fa-lg me-3 fa-fw"></i> -->
+      </button>
+
+      <button type="button" class="btn btn-link btn-floating mx-1">
+        <fa-icon [icon]="faGoogle"></fa-icon>
+      </button>
+
+      <button type="button" class="btn btn-link btn-floating mx-1">
+        <fa-icon [icon]="faTwitter"></fa-icon>
+      </button>
+
+      <button type="button" class="btn btn-link btn-floating mx-1">
+        <fa-icon [icon]="faGithub"></fa-icon>
+      </button>
+    </div>
+  </form>
+</div>

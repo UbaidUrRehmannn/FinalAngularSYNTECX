@@ -1,0 +1,22 @@
+.table-hover tbody tr:hover td,
+.table-hover tbody tr:hover th {
+  background-color: rgb(94, 253, 142) !important;
+}
+.custom {
+  padding: 0.5rem 6.5rem;
+  background-color: beige;
+  margin: auto;
+}
+.mid {
+  margin: auto;
+}
+.add-form {
+  text-decoration: none;
+  background-color: rgb(94, 253, 142) !important;
+  color: white;
+  padding: 8px;
+  border-radius: 7px;
+}
+.add-form:hover {
+  background-color: rgb(12, 22, 15) !important;
+}
