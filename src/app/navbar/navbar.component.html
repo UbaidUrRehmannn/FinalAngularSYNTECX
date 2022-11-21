@@ -1,4 +1,4 @@
-<nav class="pt-0 navbar navbar-expand-lg navbar-light bg-light mb-5">
+<nav class="sticky pt-0 navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" routerLink="../">School App</a>
   <button
     class="navbar-toggler"
@@ -11,24 +11,35 @@
   >
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+  <div
+    class="collapse navbar-collapse justify-content-between"
+    id="navbarNavAltMarkup"
+  >
     <div class="navbar-nav">
       <!-- <div class="dropdown">
         <button routerLink="../" class="dropbtn">Home</button>
       </div> -->
-      
+
       <div class="dropdown">
         <button class="dropbtn def-pointer">Employee Info</button>
         <div class="dropdown-content">
-          <a class="nav-item nav-link" routerLink="../employee/shift">View Shifts</a>
-          <a class="nav-item nav-link" routerLink="../employee/break">View Breaks</a>
+          <a class="nav-item nav-link" routerLink="../employee/shift"
+            >View Shifts</a
+          >
+          <a class="nav-item nav-link" routerLink="../employee/break"
+            >View Breaks</a
+          >
         </div>
       </div>
       <div class="dropdown">
         <button class="def-pointer dropbtn">Students</button>
         <div class="dropdown-content">
-          <a class="nav-item nav-link" routerLink="../students/biostudents">Bio Students</a>
-          <a class="nav-item nav-link" routerLink="../students/mathstudents">Math Students</a>
+          <a class="nav-item nav-link" routerLink="../students/biostudents"
+            >Bio Students</a
+          >
+          <a class="nav-item nav-link" routerLink="../students/mathstudents"
+            >Math Students</a
+          >
         </div>
       </div>
       <div class="dropdown">
@@ -40,11 +51,55 @@
     </div>
     <div class="d-flex">
       <div>
-        <button *ngIf="removeLogin()" routerLink="../login" class="hov dropbtn">Login</button>
+        <button *ngIf="removeLogin()" routerLink="../login" class="hov dropbtn">
+          Login
+        </button>
       </div>
       <div>
-        <button *ngIf="removeLogout()" (click)="logout()" class=" dropbtn hov">Logout</button>
+        <button *ngIf="removeLogout()" (click)="logout()" class="dropbtn hov">
+          Logout
+        </button>
       </div>
     </div>
   </div>
 </nav>
+<div class="sidebar">
+  <div style="position: relative">
+    <a class=""  [routerLinkActiveOptions]={exact:true} routerLinkActive="active" routerLink="../"
+      ><i class="sidebar-icons fa fa-home"></i> Home</a
+    >
+    <a routerLinkActive="active" routerLink="../employee/shift">
+      <i class="sidebar-icons fa fa-plus"></i> Add Shift</a
+    >
+   
+    <a routerLinkActive="active" routerLink="../pages/dashboard"
+      ><i class="sidebar-icons 	fa fa-bar-chart"></i> Dashboard</a
+    >
+    <a routerLink="./"
+      ><i class="sidebar-icons fa-regular fa-file"></i> Report Generation</a
+    >
+    <a routerLink="./"
+      ><i class="sidebar-icons fa fa-building-o"></i> Principal BSFls</a
+    >
+    <a class="parent-sub-menu" routerLink="./"
+      ><i class="sidebar-icons fa-solid fa-user-secret"></i> Agents</a
+    >
+    <a class="sub-menu" routerLink="./">
+      <i class="sidebar-icons fa-solid fa-angle-right"></i> Delisted and
+      blacklisted</a
+    >
+    <a class="parent-sub-menu" routerLink="./"
+      ><i class="sidebar-icons fa-solid fa-gear"></i> Service Points</a
+    >
+    <a class="sub-menu" routerLink="./">
+      <i class="sidebar-icons fa-solid fa-angle-right"></i> Delisted and
+      blacklisted</a
+    >
+    <a routerLink="./"
+      ><i class="sidebar-icons fa fa-bullhorn"></i> Announcements</a
+    >
+    <a routerLink="./"
+      ><i class="sidebar-icons fa fa-desktop"></i> System Administration</a
+    >
+  </div>
+</div>

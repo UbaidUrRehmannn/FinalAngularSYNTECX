@@ -1,3 +1,9 @@
+.sticky{
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+}
 .navbar {
   padding-bottom: 0;
 }
@@ -40,3 +46,51 @@
   .hov:hover {
     background-color: #c5cfff;;
   }
+
+
+
+  /* -------------------------------------------------------------- */
+
+  /* side bar starts */
+/* The side navigation menu */
+.sidebar {
+  margin: 0;
+  padding: 0px 0px 0px 0px;
+  width: 225px;
+  background-color: #f8f9fa;
+  position: fixed;
+  top: 52px;
+  height: 100%;
+  overflow: auto;
+  font-size: 14px;
+}
+.sidebar-icons {
+  margin-right: 5px;
+}
+/* Sidebar links */
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 10px 0px 0px 10px;
+  padding-bottom: 23px;
+  text-decoration: none;
+}
+.sidebar a.sub-menu {
+  display: block;
+  padding: 10px 0px 20px 24px;
+}
+.sidebar a.parent-sub-menu {
+  display: block;
+  padding-bottom: 0px;
+}
+
+/* Active/current link */
+.sidebar a.active {
+  color: #be49db;
+}
+
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+  color: #be49db;
+}
+/* side bar ended */

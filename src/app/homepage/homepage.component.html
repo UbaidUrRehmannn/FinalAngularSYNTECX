@@ -1,8 +1,16 @@
-<div class=" custom1 card" >
-  <img src="../../assets/images/Aboutus-1.jpg" class="card-img-top marg" alt="...">
+<div class="custom1 card">
+  <img
+    src="../../assets/images/Aboutus-1.jpg"
+    class="card-img-top marg"
+    alt="..."
+  />
   <div class="card-body">
     <h2 class="card-title">Let's Start Managing School</h2>
-    <p class="card-text">Login is required to authenticate your identity. Please Login first to view and manage any content. KODNUCS</p>
-    <a routerLink="../login" class="btn btn-primary">Login NOW</a>
+    <p class="card-text">
+      Login is required to authenticate your identity. Please Login first to
+      view and manage any content.
+    </p>
+    <a *ngIf="removeLogin()" routerLink="../login" class="btn btn-primary">Login NOW</a>
+    <a *ngIf="removeLogout()" routerLink="../pages/dashboard" class="btn btn-primary">Go to Dashboard</a>
   </div>
 </div>

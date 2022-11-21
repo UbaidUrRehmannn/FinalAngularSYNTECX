@@ -11,7 +11,7 @@ import { Options } from '@angular-slider/ngx-slider';
   styleUrls: ['./bioteacher.component.css'],
 })
 export class BioteacherComponent implements OnInit {
-  title = 'asdfghjkl Shift Information';
+  title = 'Shift Information';
   token: any;
   userName: any;
   userId: any;

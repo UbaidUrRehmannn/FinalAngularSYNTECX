@@ -10,6 +10,8 @@ import { LoginGuard } from './shared/service/loginGuard.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { AgmCoreModule } from '@agm/core';
+import { NgChartsModule } from 'ng2-charts';
+
 @NgModule({
   declarations: [AppComponent, NavbarComponent],
   imports: [
@@ -22,7 +24,8 @@ import { AgmCoreModule } from '@agm/core';
     ToastrModule.forRoot({positionClass: 'toast-bottom-right'}),
     AgmCoreModule.forRoot({
       apiKey: ''
-    })
+    }),
+    NgChartsModule
      
   ],
   providers: [LoginGuard],

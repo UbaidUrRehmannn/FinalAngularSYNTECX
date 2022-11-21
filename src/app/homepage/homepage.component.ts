@@ -11,5 +11,14 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  removeLogin(){
+    if(localStorage.getItem('Token') !== null){
+      return false
+    }else return true
+  }
+  removeLogout(){
+    if(localStorage.getItem('Token') !== null){
+      return true
+    }else return false
+  }
 }

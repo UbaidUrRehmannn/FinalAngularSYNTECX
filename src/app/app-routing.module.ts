@@ -30,10 +30,18 @@ const routes: Routes = [
     path: 'forms',
     canActivate: [LoginGuard],
     loadChildren: () =>
-    import('./forms/forms.module').then
-    ((m) => m.FormssModule),
+      import('./forms/forms.module').then((m) => m.FormssModule),
   },
-  { path: 'login',  loadChildren: () => import('./login/login.module').then(m => m.LoginModule) }
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./login/login.module').then((m) => m.LoginModule),
+  },
+  {
+    path: 'pages',
+    loadChildren: () =>
+      import('./pages/pages.module').then((m) => m.PagesModule),
+  },
 ];
 
 @NgModule({

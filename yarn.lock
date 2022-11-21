@@ -146,7 +146,7 @@
   dependencies:
     "tslib" "^2.3.0"
 
-"@angular/cdk@^14.0.0", "@angular/cdk@^14.2.5", "@angular/cdk@14.2.6":
+"@angular/cdk@^14.0.0", "@angular/cdk@^14.2.5", "@angular/cdk@>=14.0.0", "@angular/cdk@14.2.6":
   "integrity" "sha512-sihrwk/0emYbE2X+DOIlan7mohED9pKiH2gQh2hk3Ud8jjeW6VmbaGtTCkjs+HRbFc9/44uDHasizxrKnjseyw=="
   "resolved" "https://registry.npmjs.org/@angular/cdk/-/cdk-14.2.6.tgz"
   "version" "14.2.6"
@@ -181,7 +181,7 @@
     "uuid" "8.3.2"
     "yargs" "17.5.1"
 
-"@angular/common@^14.0.0", "@angular/common@^14.0.0 || ^15.0.0", "@angular/common@^14.1.0", "@angular/common@^14.2.0", "@angular/common@^9.1.0 || ^10.0.0", "@angular/common@>=14.0.0-0", "@angular/common@>=6.1.0", "@angular/common@14.2.9":
+"@angular/common@^14.0.0", "@angular/common@^14.0.0 || ^15.0.0", "@angular/common@^14.1.0", "@angular/common@^14.2.0", "@angular/common@^9.1.0 || ^10.0.0", "@angular/common@>=14.0.0", "@angular/common@>=14.0.0-0", "@angular/common@>=4.0.0 || ^2.0.0", "@angular/common@>=6.1.0", "@angular/common@14.2.9":
   "integrity" "sha512-nC1He98gj4FQqSo31Fb9ZJ+Ao3jJbmAg1JAdF5L0tkY70YydM91HXAp/JDrJ12O7IomenAwEHONFCVxgUfqUJw=="
   "resolved" "https://registry.npmjs.org/@angular/common/-/common-14.2.9.tgz"
   "version" "14.2.9"
@@ -204,14 +204,14 @@
     "tslib" "^2.3.0"
     "yargs" "^17.2.1"
 
-"@angular/compiler@^14.2.0", "@angular/compiler@14.2.9":
+"@angular/compiler@^14.2.0", "@angular/compiler@>=4.0.0 || ^2.0.0", "@angular/compiler@14.2.9":
   "integrity" "sha512-M0uYFMSAejYJ+fm/Lz1/l7nr1adVrYfC7lKBpbiyya5moGenRid81Fl7i2YY6RehFpGHw3GdPlMz+DRIMXgyuQ=="
   "resolved" "https://registry.npmjs.org/@angular/compiler/-/compiler-14.2.9.tgz"
   "version" "14.2.9"
   dependencies:
     "tslib" "^2.3.0"
 
-"@angular/core@^14.0.0", "@angular/core@^14.0.0 || ^15.0.0", "@angular/core@^14.1.0", "@angular/core@^14.2.0", "@angular/core@^9.1.0 || ^10.0.0", "@angular/core@>=14.0.0-0", "@angular/core@>=6.1.0", "@angular/core@14.2.9":
+"@angular/core@^14.0.0", "@angular/core@^14.0.0 || ^15.0.0", "@angular/core@^14.1.0", "@angular/core@^14.2.0", "@angular/core@^9.1.0 || ^10.0.0", "@angular/core@>=14.0.0", "@angular/core@>=14.0.0-0", "@angular/core@>=4.0.0 || ^2.0.0", "@angular/core@>=6.1.0", "@angular/core@14.2.9":
   "integrity" "sha512-6bExQgGmN9qmBbVMl7WaZ1KFSfTgFK+MmLbvoh4a29b47h7wvEuUWO7ulczzoUJQfMGfXU/4ypEW1a8ZhX+Xrg=="
   "resolved" "https://registry.npmjs.org/@angular/core/-/core-14.2.9.tgz"
   "version" "14.2.9"
@@ -1970,6 +1970,13 @@
   "resolved" "https://registry.npmjs.org/angular-material/-/angular-material-0.8.0.tgz"
   "version" "0.8.0"
 
+"angular2-chartjs@^0.5.1":
+  "integrity" "sha512-bxEVxVEv7llMcgwuc9jlc5KmuOEngT7ZlUyCddmsXwQQAahrTeNgFJ1Nc1SVQnq2fl2d8efh6m70DqF5beiA+A=="
+  "resolved" "https://registry.npmjs.org/angular2-chartjs/-/angular2-chartjs-0.5.1.tgz"
+  "version" "0.5.1"
+  dependencies:
+    "chart.js" "^2.3.0"
+
 "ansi-colors@4.1.3":
   "integrity" "sha512-/6w/C21Pm1A7aZitlI5Ni/2J6FFQN8i1Cvz3kHABAAbw93v/NlvKdVOqz7CCWz/3iv/JplRSEEZ83XION15ovw=="
   "resolved" "https://registry.npmjs.org/ansi-colors/-/ansi-colors-4.1.3.tgz"
@@ -2324,6 +2331,34 @@
   "resolved" "https://registry.npmjs.org/chardet/-/chardet-0.7.0.tgz"
   "version" "0.7.0"
 
+"chart.js@^2.3.0":
+  "integrity" "sha512-B07aAzxcrikjAPyV+01j7BmOpxtQETxTSlQ26BEYJ+3iUkbNKaOJ/nDbT6JjyqYxseM0ON12COHYdU2cTIjC7A=="
+  "resolved" "https://registry.npmjs.org/chart.js/-/chart.js-2.9.4.tgz"
+  "version" "2.9.4"
+  dependencies:
+    "chartjs-color" "^2.1.0"
+    "moment" "^2.10.2"
+
+"chart.js@^3.4.0", "chart.js@^4.0.1":
+  "integrity" "sha512-5/8/9eBivwBZK81mKvmIwTb2Pmw4D/5h1RK9fBWZLLZ8mCJ+kfYNmV9rMrGoa5Hgy2/wVDBMLSUDudul2/9ihA=="
+  "resolved" "https://registry.npmjs.org/chart.js/-/chart.js-4.0.1.tgz"
+  "version" "4.0.1"
+
+"chartjs-color-string@^0.6.0":
+  "integrity" "sha512-TIB5OKn1hPJvO7JcteW4WY/63v6KwEdt6udfnDE9iCAZgy+V4SrbSxoIbTw/xkUIapjEI4ExGtD0+6D3KyFd7A=="
+  "resolved" "https://registry.npmjs.org/chartjs-color-string/-/chartjs-color-string-0.6.0.tgz"
+  "version" "0.6.0"
+  dependencies:
+    "color-name" "^1.0.0"
+
+"chartjs-color@^2.1.0":
+  "integrity" "sha512-haqOg1+Yebys/Ts/9bLo/BqUcONQOdr/hoEr2LLTRl6C5LXctUdHxsCYfvQVg5JIxITrfCNUDr4ntqmQk9+/0w=="
+  "resolved" "https://registry.npmjs.org/chartjs-color/-/chartjs-color-2.4.1.tgz"
+  "version" "2.4.1"
+  dependencies:
+    "chartjs-color-string" "^0.6.0"
+    "color-convert" "^1.9.3"
+
 "chokidar@^3.0.0", "chokidar@^3.5.1", "chokidar@^3.5.2", "chokidar@^3.5.3", "chokidar@>=3.0.0 <4.0.0":
   "integrity" "sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw=="
   "resolved" "https://registry.npmjs.org/chokidar/-/chokidar-3.5.3.tgz"
@@ -2394,7 +2429,7 @@
   "resolved" "https://registry.npmjs.org/clone/-/clone-1.0.4.tgz"
   "version" "1.0.4"
 
-"color-convert@^1.9.0":
+"color-convert@^1.9.0", "color-convert@^1.9.3":
   "integrity" "sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg=="
   "resolved" "https://registry.npmjs.org/color-convert/-/color-convert-1.9.3.tgz"
   "version" "1.9.3"
@@ -2408,15 +2443,15 @@
   dependencies:
     "color-name" "~1.1.4"
 
+"color-name@^1.0.0", "color-name@1.1.3":
+  "integrity" "sha512-72fSenhMw2HZMTVHeCA9KCmpEIbzWiQsjN+BHcBbS9vr1mtt+vJjPdksIBNUmKAW8TFUDPJK5SUU3QhE9NEXDw=="
+  "resolved" "https://registry.npmjs.org/color-name/-/color-name-1.1.3.tgz"
+  "version" "1.1.3"
+
 "color-name@~1.1.4":
   "integrity" "sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA=="
   "resolved" "https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz"
   "version" "1.1.4"
-
-"color-name@1.1.3":
-  "integrity" "sha512-72fSenhMw2HZMTVHeCA9KCmpEIbzWiQsjN+BHcBbS9vr1mtt+vJjPdksIBNUmKAW8TFUDPJK5SUU3QhE9NEXDw=="
-  "resolved" "https://registry.npmjs.org/color-name/-/color-name-1.1.3.tgz"
-  "version" "1.1.3"
 
 "color-support@^1.1.3":
   "integrity" "sha512-qiBjkpbMLO/HL68y+lh4q0/O1MZFj2RX6X/KmMa3+gJD3z+WwI1ZzDHysvqHGS3mP6mznPckpXmw1nI9cJjyRg=="
@@ -4033,6 +4068,11 @@
   dependencies:
     "p-locate" "^4.1.0"
 
+"lodash-es@^4.17.15":
+  "integrity" "sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw=="
+  "resolved" "https://registry.npmjs.org/lodash-es/-/lodash-es-4.17.21.tgz"
+  "version" "4.17.21"
+
 "lodash.debounce@^4.0.8":
   "integrity" "sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow=="
   "resolved" "https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-4.0.8.tgz"
@@ -4295,6 +4335,11 @@
   "resolved" "https://registry.npmjs.org/mkdirp/-/mkdirp-1.0.4.tgz"
   "version" "1.0.4"
 
+"moment@^2.10.2":
+  "integrity" "sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w=="
+  "resolved" "https://registry.npmjs.org/moment/-/moment-2.29.4.tgz"
+  "version" "2.29.4"
+
 "ms@^2.0.0", "ms@^2.1.1", "ms@2.1.2":
   "integrity" "sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w=="
   "resolved" "https://registry.npmjs.org/ms/-/ms-2.1.2.tgz"
@@ -4346,6 +4391,14 @@
   "integrity" "sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw=="
   "resolved" "https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz"
   "version" "2.6.2"
+
+"ng2-charts@^4.0.1":
+  "integrity" "sha512-QYXVZHP/RIRhAw36xeXPL6JZz73fXuHePTyGwBiOfIRGCG7EDYLApnSgEn+Mx+QFKYT1VN9Fsj5b04rrd2nrEw=="
+  "resolved" "https://registry.npmjs.org/ng2-charts/-/ng2-charts-4.0.1.tgz"
+  "version" "4.0.1"
+  dependencies:
+    "lodash-es" "^4.17.15"
+    "tslib" "^2.3.0"
 
 "ngx-toastr@^15.2.1":
   "integrity" "sha512-Fyik8+sTbmX4NftVWWd3SIaeH8qlRU0emAfpey/AXsXuUEXgOOXKKnVPLmMAK7XL7xLy0c/+UsYBwlPK4TJcmA=="
