@@ -5,6 +5,7 @@ import {
   faTwitter,
   faGithub,
 } from '@fortawesome/free-brands-svg-icons';
+import { ToastrService } from 'ngx-toastr';
 import { LoginService } from '../shared/service/enroll.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -22,12 +23,15 @@ export class LoginComponent implements OnInit {
   x: any;
   y: any;
   tok: any;
-
+  userName: any;
   reactiveForm!: FormGroup;
-
   router: Router;
 
-  constructor(private enrollServ: LoginService, router: Router) {
+  constructor(
+    private toastr: ToastrService,
+    private enrollServ: LoginService,
+    router: Router
+  ) {
     this.reactiveForm = new FormGroup({
       number: new FormControl(null, [
         Validators.required,
@@ -39,17 +43,11 @@ export class LoginComponent implements OnInit {
       ]),
     });
     this.router = router;
-    // console.log(this.reactiveForm.value.number);
   }
-
   ngOnInit(): void {}
-
-  // get user() {
-  //   return this.enrollServ.get('number');
-  // }
-  // get passsword() {
-  //   return this.enrollServ.get('password');
-  // }
+  dataUpdateSuccess() {
+    this.toastr.success('Login Successfull', 'Welcome ' + this.userName);
+  }
   setItem() {
     localStorage.setItem('userLogin', JSON.stringify(this.reactiveForm.value));
   }
@@ -65,13 +63,14 @@ export class LoginComponent implements OnInit {
           const splits = str.split('|');
           console.log('Splits value: ', splits);
           localStorage.setItem('User_Name', JSON.stringify(splits[0]));
+          this.userName = JSON.stringify(splits[0]);
           localStorage.setItem('User_id', splits[1]);
           localStorage.setItem('Token', splits[2]);
           localStorage.setItem('Image', splits[8]);
           this.router.navigate(['../employee/shift']);
         } else {
           this.x = data.message;
-          console.log('this.x', this.x)
+          console.log('this.x', this.x);
         }
         this.y = data.rescode;
         this.tok = localStorage.getItem('Token');
@@ -86,12 +85,13 @@ export class LoginComponent implements OnInit {
   closeAlert() {
     document.getElementById('alrclose')!.style.display = 'none';
   }
-
   onSubmit = () => {
     this.userLogin();
-
     console.log('this.reactiveForm: ', this.reactiveForm);
     console.log('this.reactiveForm.controls: ', this.reactiveForm.controls);
     console.log('this.reactiveForm.value: ', this.reactiveForm.value);
+    setTimeout(() => {
+      this.dataUpdateSuccess();
+    }, 500);
   };
 }

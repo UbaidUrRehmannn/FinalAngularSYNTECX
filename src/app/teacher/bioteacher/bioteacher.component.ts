@@ -16,7 +16,7 @@ export class BioteacherComponent implements OnInit {
   userName: any;
   userId: any;
   reactiveForm: FormGroup;
-  secondReactiveForm: FormGroup;
+  // secondReactiveForm: FormGroup;
   rows: any;
   router: Router;
   editableDesc: any;
@@ -40,16 +40,7 @@ export class BioteacherComponent implements OnInit {
       startTime: new FormControl(null, Validators.required),
       endTime: new FormControl(null, Validators.required),
       description: new FormControl(null, Validators.required),
-    });
-
-    this.secondReactiveForm = new FormGroup({
-      breakTitle: new FormControl(null, Validators.required),
-      breakStartTime: new FormControl(null, Validators.required),
-      breakEndTime: new FormControl(null, Validators.required),
-      breakDescription: new FormControl(null, Validators.required),
-      range: new FormControl(null, [Validators.required, Validators.max(150)]),
-      paid: new FormControl('', Validators.requiredTrue),
-    });
+    });  
 
     this.router = router;
   }
@@ -198,4 +189,5 @@ export class BioteacherComponent implements OnInit {
   paramRoute(id: any) {
     this.router.navigate(['../employee/break', id]);
   }
+
 }

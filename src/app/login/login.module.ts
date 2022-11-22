@@ -7,6 +7,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from '../shared/service/enroll.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ToastNoAnimationModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -17,7 +18,9 @@ import { HttpClientModule } from '@angular/common/http';
     FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastNoAnimationModule.forRoot({positionClass: 'toast-bottom-right'}),
+  
 
   ],
   providers: [LoginService],

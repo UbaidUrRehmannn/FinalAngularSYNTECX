@@ -16,9 +16,7 @@
     id="navbarNavAltMarkup"
   >
     <div class="navbar-nav">
-      <!-- <div class="dropdown">
-        <button routerLink="../" class="dropbtn">Home</button>
-      </div> -->
+      
 
       <div class="dropdown">
         <button class="dropbtn def-pointer">Employee Info</button>
@@ -63,17 +61,22 @@
     </div>
   </div>
 </nav>
+
 <div class="sidebar">
   <div style="position: relative">
-    <a class=""  [routerLinkActiveOptions]={exact:true} routerLinkActive="active" routerLink="../"
+    <a
+      class=""
+      [routerLinkActiveOptions]="{ exact: true }"
+      routerLinkActive="active"
+      routerLink="../"
       ><i class="sidebar-icons fa fa-home"></i> Home</a
     >
     <a routerLinkActive="active" routerLink="../employee/shift">
       <i class="sidebar-icons fa fa-plus"></i> Add Shift</a
     >
-   
+
     <a routerLinkActive="active" routerLink="../pages/dashboard"
-      ><i class="sidebar-icons 	fa fa-bar-chart"></i> Dashboard</a
+      ><i class="sidebar-icons fa fa-bar-chart"></i> Dashboard</a
     >
     <a routerLink="./"
       ><i class="sidebar-icons fa-regular fa-file"></i> Report Generation</a
@@ -101,5 +104,17 @@
     <a routerLink="./"
       ><i class="sidebar-icons fa fa-desktop"></i> System Administration</a
     >
+  </div>
+  <div class="d-flex">
+    <div>
+      <button *ngIf="removeLogin()" routerLink="../login" class="hov dropbtn">
+        Login
+      </button>
+    </div>
+    <div>
+      <button *ngIf="removeLogout()" (click)="logout()" class="dropbtn hov">
+        Logout
+      </button>
+    </div>
   </div>
 </div>
