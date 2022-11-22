@@ -21,11 +21,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./parents/parents.module').then((m) => m.ParentsModule),
   },
-  // {
-  //   path: '',
-  //   loadChildren: () =>
-  //     import('./homepage/homepage.module').then((m) => m.HomepageModule),
-  // },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./homepage/homepage.module').then((m) => m.HomepageModule),
+  },
   {
     path: 'forms',
     canActivate: [LoginGuard],
@@ -33,7 +33,7 @@ const routes: Routes = [
       import('./forms/forms.module').then((m) => m.FormssModule),
   },
   {
-    path: '',
+    path: 'login',
     loadChildren: () =>
       import('./login/login.module').then((m) => m.LoginModule),
   },

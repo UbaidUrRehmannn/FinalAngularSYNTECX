@@ -11,6 +11,7 @@
       view and manage any content.
     </p>
     <a *ngIf="removeLogin()" routerLink="../login" class="btn btn-primary">Login NOW</a>
-    <a *ngIf="removeLogout()" routerLink="../pages/dashboard" class="btn btn-primary">Go to Dashboard</a>
+    <!-- <a *ngIf="removeLogout()" routerLink="../pages/dashboard" class="btn btn-primary">Go to Dashboard</a> -->
+    <a *ngIf="removeLogout()" routerLink="/employee/shift" class="btn btn-primary">Go to Shifts</a>
   </div>
 </div>

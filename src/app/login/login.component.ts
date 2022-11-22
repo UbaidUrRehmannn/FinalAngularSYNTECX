@@ -92,6 +92,6 @@ export class LoginComponent implements OnInit {
     console.log('this.reactiveForm.value: ', this.reactiveForm.value);
     setTimeout(() => {
       this.dataUpdateSuccess();
-    }, 500);
+    }, 1000);
   };
 }

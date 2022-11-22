@@ -1,4 +1,4 @@
-.sticky{
+.sticky {
   position: fixed;
   top: 0;
   z-index: 1;
@@ -9,49 +9,53 @@
 }
 .dropbtn {
   background: transparent;
-    color: black;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-  }
-  
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  .def-pointer{
-    cursor: default !important;
-  }
-  .dropdown-content a:hover {background-color: #ddd;}
-  
-  .dropdown:hover .dropdown-content {display: block;}
-  
-  .dropdown:hover .dropbtn {background-color: #1e98e9;}
-  .hov:hover {
-    background-color: #c5cfff;;
-  }
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
 
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
 
-  /* -------------------------------------------------------------- */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.def-pointer {
+  cursor: default !important;
+}
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
 
-  /* side bar starts */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #1e98e9;
+}
+.hov:hover {
+  background-color: #c5cfff;
+}
+
+/* -------------------------------------------------------------- */
+
+/* side bar starts */
 /* The side navigation menu */
 .sidebar {
   margin: 0;
@@ -86,11 +90,23 @@
 
 /* Active/current link */
 .sidebar a.active {
-  color: #be49db;
+  color: rgb(104, 87, 255);
 }
 
 /* Links on mouse-over */
 .sidebar a:hover:not(.active) {
-  color: #be49db;
+  color: rgb(104, 87, 255);
 }
 /* side bar ended */
+.login-btn-clr {
+  background: cornflowerblue;
+  color: white;
+  border-radius: 0px !important;
+}
+.login-btn-clr:hover {
+  background: rgb(104, 87, 255);
+}
+.logout-border {
+  border-radius: 0px !important;
+}
+

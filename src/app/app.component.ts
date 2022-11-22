@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 
 })
 export class AppComponent {
-  title = 'taskOneLazyLoading';
+  title = 'Final Angular Project';
 }

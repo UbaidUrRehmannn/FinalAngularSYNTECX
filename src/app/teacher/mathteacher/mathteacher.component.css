@@ -1,26 +1,36 @@
 .table-hover tbody tr:hover td,
 .table-hover tbody tr:hover th {
-  background-color: rgb(253, 153, 94) !important;
+  background-color: cornflowerblue !important;
+  color: white !important;
 }
 .custom {
-  padding: 0.5rem 6.5rem;
+  padding: 1rem 1.5rem;
   background-color: beige;
-  margin: auto;
+  /* margin: auto; */
 }
 .mid {
   margin: auto;
 }
 .add-form {
   text-decoration: none;
-  background-color: rgb(253, 153, 94) !important;
+  background-color: cornflowerblue;
   color: white;
   padding: 8px;
   border-radius: 7px;
 }
-
+.no-border{
+  border: none;
+}
 .pe{
   cursor: pointer;
 }
+/* .hov:hover{
+  background-color: rgb(14, 1, 138);
+} */
+#myBtn:hover {
+  background-color: rgb(104, 87, 255);
+}
+
 .has-search .form-control {
   padding-left: 2.375rem;
 }

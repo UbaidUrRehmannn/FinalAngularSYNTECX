@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgxSliderModule } from '@angular-slider/ngx-slider';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -11,7 +11,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { AgmCoreModule } from '@agm/core';
 import { NgChartsModule } from 'ng2-charts';
-
+import {MatButtonModule} from '@angular/material/button';
 @NgModule({
   declarations: [AppComponent, NavbarComponent],
   imports: [
@@ -21,12 +21,13 @@ import { NgChartsModule } from 'ng2-charts';
     BrowserAnimationsModule,
     NgbModule,
     // NgxSliderModule,
-    ToastrModule.forRoot({positionClass: 'toast-bottom-right'}),
+    ToastrModule.forRoot({ positionClass: 'toast-bottom-right' }),
     AgmCoreModule.forRoot({
-      apiKey: ''
+      apiKey: '',
     }),
-    NgChartsModule
-     
+    NgChartsModule,
+    MatButtonModule,
+   
   ],
   providers: [LoginGuard],
   bootstrap: [AppComponent],

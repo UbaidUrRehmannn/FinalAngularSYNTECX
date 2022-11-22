@@ -1,4 +1,4 @@
-<nav class="sticky pt-0 navbar navbar-expand-lg navbar-light bg-light">
+<!-- <nav class="sticky pt-0 navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" routerLink="../">School App</a>
   <button
     class="navbar-toggler"
@@ -60,7 +60,7 @@
       </div>
     </div>
   </div>
-</nav>
+</nav> -->
 
 <div class="sidebar">
   <div style="position: relative">
@@ -75,10 +75,10 @@
       <i class="sidebar-icons fa fa-plus"></i> Add Shift</a
     >
 
-    <a routerLinkActive="active" routerLink="../pages/dashboard"
+    <!-- <a routerLinkActive="active" routerLink="../pages/dashboard"
       ><i class="sidebar-icons fa fa-bar-chart"></i> Dashboard</a
-    >
-    <a routerLink="./"
+    > -->
+    <!-- <a routerLink="./"
       ><i class="sidebar-icons fa-regular fa-file"></i> Report Generation</a
     >
     <a routerLink="./"
@@ -103,16 +103,24 @@
     >
     <a routerLink="./"
       ><i class="sidebar-icons fa fa-desktop"></i> System Administration</a
-    >
+    > -->
   </div>
-  <div class="d-flex">
+  <div style="width: 225px; text-align: center" class=" ">
     <div>
-      <button *ngIf="removeLogin()" routerLink="../login" class="hov dropbtn">
+      <button
+        *ngIf="removeLogin()"
+        routerLink="../login"
+        class="btn login-btn-clr btn-block"
+      >
         Login
       </button>
     </div>
     <div>
-      <button *ngIf="removeLogout()" (click)="logout()" class="dropbtn hov">
+      <button
+        *ngIf="removeLogout()"
+        (click)="logout()"
+        class="btn logout-border btn-danger btn-block"
+      >
         Logout
       </button>
     </div>

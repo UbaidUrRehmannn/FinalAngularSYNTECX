@@ -5,6 +5,9 @@ export class LoginGuard implements CanActivate {
   canActivate(): boolean {
     if (localStorage.getItem('Token') !== null) {
       return true;
-    } else return false;
+    } else {
+      alert('Please Login to view this Page');
+      return false;
+    }
   }
 }
