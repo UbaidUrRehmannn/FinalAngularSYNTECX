@@ -2,6 +2,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { TeamService } from '../shared/service/team.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-teams',
@@ -22,7 +23,12 @@ export class TeamsComponent implements OnInit {
   teamid: any;
   router: Router;
   searchval: string = '';
-  constructor(private teamServe: TeamService, router: Router) {
+
+  constructor(
+    private teamServe: TeamService,
+    private toastr: ToastrService,
+    router: Router
+  ) {
     this.getData();
     this.viewAllTeams();
     this.reactiveForm = new FormGroup({
@@ -36,6 +42,15 @@ export class TeamsComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+  dataUpdateSuccess() {
+    this.toastr.success('Break Updated Successfully', 'Congratulations');
+  }
+  dataAdditionSuccess() {
+    this.toastr.success('Break Added Successfully', 'Congratulations');
+  }
+  dataDeletionSuccess() {
+    this.toastr.success('Break Deleted Successfully', 'Congratulations');
+  }
   getData() {
     this.token = localStorage.getItem('Token');
     console.log('Token from Teams module: ', this.token);
@@ -78,6 +93,7 @@ export class TeamsComponent implements OnInit {
       .subscribe((res) => {
         console.log('Added Team: ', res);
       });
+    this.dataAdditionSuccess();
     this.viewAllTeams();
   }
   deleteTeam() {
@@ -86,6 +102,7 @@ export class TeamsComponent implements OnInit {
       .subscribe((res) => {
         console.log('Delete API Response: ', res);
       });
+    this.dataDeletionSuccess();
     this.viewAllTeams();
   }
   getCurrentTeamId(id: any) {
@@ -114,14 +131,13 @@ export class TeamsComponent implements OnInit {
     this.teamDescription = data.team_desc;
     this.teamName = data.team_name;
     this.teamTimeZoneType = data.team_timezone_type;
-  
+
     this.teamid = data.team_id;
     this.reversbtn();
     let patchingVal = {
       teamDescription: this.teamDescription,
       teamName: this.teamName,
       teamtimezone: this.teamTimeZoneType,
-     
     };
     this.reactiveForm.patchValue(patchingVal);
     // console.log('Patching Values are: ', patchingVal )
@@ -142,10 +158,10 @@ export class TeamsComponent implements OnInit {
         this.teamid
       )
       .subscribe((res) => {
-        
         console.log('Update API Response: ', res);
       });
-      this.viewAllTeams()
+    this.dataUpdateSuccess();
+    this.viewAllTeams();
   }
   onSubmit() {
     console.log('Submitedfirst');

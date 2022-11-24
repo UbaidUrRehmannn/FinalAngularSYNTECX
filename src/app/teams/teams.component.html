@@ -1,3 +1,4 @@
+<!-- HEADER STARTS -->
 <div class="container custom mt-4">
   <div class="m-auto d-flex justify-content-between">
     <div class="d-flex align-items-center">
@@ -35,6 +36,9 @@
     </div>
   </div>
 </div>
+<!-- HEADER ENDS -->
+
+<!-- TEAMS TABLE STRATS -->
 <div class="mt-5 container">
   <table class="table table-striped table-hover">
     <thead>
@@ -73,14 +77,15 @@
             title="Edit Team "
             ><i class="fa-solid fa-pen"></i
           ></a>
-          <a (click)="paramRoute(row.team_id)"class="cursor-pointer-last" title="View Sub Teams "
-            ><i class="fas fa-coffee"></i
+          <a (click)="paramRoute(row.parent_team_id)"class="cursor-pointer-last" title="View Sub Teams "
+            ><i class="fa fa-user"></i
           ></a>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
+<!-- TEAMS TABLE ENDS -->
 
 <!-- ADD TEAM MODAL STARTS -->
 <div
@@ -235,7 +240,7 @@
             class="btn btn-primary"
             data-dismiss="modal"
           >
-            Update Shift
+            Update Team
           </button>
           <ng-template #upd>
             <button
@@ -245,7 +250,7 @@
               type="button"
               class="btn btn-primary"
             >
-              Add Shift
+              Add Team
             </button>
           </ng-template>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">

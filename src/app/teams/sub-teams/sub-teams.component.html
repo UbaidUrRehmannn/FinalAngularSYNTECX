@@ -1,1 +1,291 @@
-<p>sub-teams works!</p>
+<!-- SUB TEAMS HEADER STARTS -->
+<div class="container custom mt-4">
+  <div class="m-auto d-flex justify-content-between">
+    <div class="d-flex align-items-center">
+      <h2 class="mb-0">{{ title }}</h2>
+    </div>
+    <div class="d-flex align-items-center">
+      <div>
+        <!-- routerLink="../../forms/teachersform" -->
+        <!-- (click)="changeBtn()" -->
+        <button
+          type="button"
+          class="add-form no-border"
+          id="myBtn"
+          data-toggle="modal"
+          data-target="#exampleModalCenter"
+        >
+          Add Sub Teams
+        </button>
+      </div>
+      <div class="">
+        <form class="ml-4 form-inline active-cyan-4">
+          <div class="form-group has-search">
+            <span class="fa fa-search form-control-feedback"></span>
+            <input
+              [(ngModel)]="searchval"
+              name="searchBox"
+              id="search"
+              type="search"
+              class="form-control"
+              placeholder="Search..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- SUB TEAMS HEADER ENDS -->
+
+<!-- SUB TEAMS TABLE STRATS -->
+<div *ngIf="y === 1" class="mt-5 container">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Team Name</th>
+        <th>Team Descripton</th>
+
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let row of rows | searchSubTeam: searchval">
+        <td>{{ row.team_name }}</td>
+        <td>{{ row.team_desc }}</td>
+
+        <td>
+          <a
+            (click)="getCurrentSubTeamId(row.team_id)"
+            data-toggle="modal"
+            data-target="#exampleModal"
+            class="cursor-pointer"
+            title="Delete Team "
+          >
+            <i class="mr-2 fa fa-trash"></i
+          ></a>
+          <!-- (click)="editTable(row.team_id, row.parent_team_id)" -->
+
+          <!-- (click)="editTable(row)" -->
+          <!-- <a
+            data-toggle="modal"
+            data-target="#exampleModalCenter"
+            class="cursor-pointer"
+            title="Edit Team "
+            ><i class="fa-solid fa-pen"></i
+          ></a> -->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- SUB TEAMS TABLE ENDS -->
+
+<!-- SUB TEAMS TABLE STRATS ngIf -->
+<div *ngIf="y === 0" class="mt-5 container text-danger text-center">
+  <span class="fw-bold h6">NO DATA FOUND: </span> <span>{{ x }}</span>
+</div>
+<!-- SUB TEAMS TABLE ENDS ngIf -->
+
+<!-- ADD TEAM MODAL STARTS -->
+<div
+  class="modal fade"
+  id="exampleModalCenter"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <form style="width: 600px" [formGroup]="reactiveForm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Add Sub Team</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <div class="d-flex align-items-center justify-content-between">
+              <div>
+                <label
+                  style="color: #7c7c7c; margin-bottom: 14px"
+                  for="formGroupExampleInput"
+                  class="form-label fw-bold"
+                  >Team Admin Name:
+                </label>
+              </div>
+              <div class="d-flex align-items-center">
+                <!-- formControlName="teamAdminName" -->
+                <input
+                  value="Haider Ali"
+                  disabled
+                  type="text"
+                  class="form-control form-group"
+                  id="formGroupExampleInput"
+                  placeholder="Enter Title"
+                />
+              </div>
+            </div>
+            <div class="d-flex align-items-center justify-content-between">
+              <div>
+                <label for="start_time" class="fw-bold text-secondary">
+                  Team Name</label
+                >
+              </div>
+              <div>
+                <input
+                  type="text"
+                  class="form-control form-group"
+                  id="appt"
+                  name="appt"
+                  formControlName="teamName"
+                />
+              </div>
+            </div>
+            <div class="d-flex align-items-center justify-content-between">
+              <div>
+                <label for="end_time" class="fw-bold text-secondary"
+                  >Team Descripton</label
+                >
+              </div>
+              <div>
+                <input
+                  type="text"
+                  class="form-control form-group"
+                  id="appt"
+                  name="appt"
+                  style="border-radius: 8px"
+                  formControlName="teamDescription"
+                />
+              </div>
+            </div>
+            <div class="d-flex align-items-center justify-content-between">
+              <div>
+                <label
+                  class="fw-bold"
+                  style="color: #7c7c7c"
+                  for="exampleFormControlTextarea1"
+                  >Team Creator</label
+                >
+              </div>
+              <div>
+                <!-- formControlName="teamCreator" -->
+                <input
+                  value="Haider Ali"
+                  disabled
+                  type="text"
+                  class="form-control form-group"
+                  id="formGroupExampleInput"
+                  placeholder="Enter Title"
+                />
+              </div>
+            </div>
+
+            <div class="text-center">
+              <label
+                style="color: #7c7c7c"
+                class="text-center fw-bold form-label"
+                >Team TimeZone Type</label
+              >
+            </div>
+
+            <div class="d-flex align-items-center justify-content-around">
+              <div class="form-check">
+                <input
+                  formControlName="teamtimezone"
+                  class="form-check-input"
+                  type="radio"
+                  id="Organization"
+                  value="1"
+                />
+                <label class="form-check-label" for="Organization">
+                  Organization
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  formControlName="teamtimezone"
+                  class="form-check-input"
+                  type="radio"
+                  id="People"
+                  value="2"
+                />
+
+                <label class="form-check-label" for="People"> People </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            (click)="onSubmit()"
+            data-dismiss="modal"
+            [disabled]="reactiveForm.invalid"
+            type="button"
+            class="btn btn-primary"
+          >
+            Add Sub Team
+          </button>
+
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- ADD TEAM MODAL ENDS -->
+
+<!-- DELETE TEAM MODAL STRATS -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Are You Sure!</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        This action will remove entry from database.
+        <span class="text-danger">This operation can not be undone</span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Cancel
+        </button>
+
+        <button
+          (click)="deleteTeam()"
+          data-dismiss="modal"
+          type="button"
+          class="btn btn-primary"
+        >
+          Yes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- DELETE TEAM MODAL ENDS -->

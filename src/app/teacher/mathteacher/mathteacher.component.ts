@@ -142,7 +142,7 @@ export class MathteacherComponent implements OnInit {
       .subscribe((res) => {
         console.log('Updatebtn clicked:', res);
         this.viewAllBreak();
-        // this.dataUpdateSuccess();
+        this.dataUpdateSuccess();
       });
   }
   viewBreak(id: any) {

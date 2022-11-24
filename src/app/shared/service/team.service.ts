@@ -66,7 +66,7 @@ export class TeamService {
     };
     return this.http.post(this.config.apiUrl, data, { headers: reqheader });
   }
-   viewChildTeam(token: string, userid: string, parent_team_id: string) {
+  viewChildTeam(token: string, userid: string, parent_team_id: string) {
     const reqheader = new HttpHeaders({
       'x-access-token': token,
       'Content-Type': 'application/json',
@@ -107,13 +107,13 @@ export class TeamService {
     teamtimezonetype: string,
     teamid: string
   ) {
-    console.log('Service File Data: ', token)
-    console.log('Service File Data: ', userid)
-    console.log('Service File Data: ', usertype)
-    console.log('Service File Data: ', teamdesc)
-    console.log('Service File Data: ', teamname)
-    console.log('Service File Data: ', teamtimezonetype)
-    console.log('Service File Data: ', teamid)
+    console.log('Service File Data: ', token);
+    console.log('Service File Data: ', userid);
+    console.log('Service File Data: ', usertype);
+    console.log('Service File Data: ', teamdesc);
+    console.log('Service File Data: ', teamname);
+    console.log('Service File Data: ', teamtimezonetype);
+    console.log('Service File Data: ', teamid);
     const reqheader = new HttpHeaders({
       'x-access-token': token,
       'Content-Type': 'application/json',

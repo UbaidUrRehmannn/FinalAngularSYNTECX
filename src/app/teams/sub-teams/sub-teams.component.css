@@ -1,0 +1,62 @@
+.table-hover tbody tr:hover td,
+.table-hover tbody tr:hover th {
+  background-color: cornflowerblue !important;
+  color: white !important;
+}
+.custom {
+  padding: 1rem 1.5rem;
+  background-color: beige;
+}
+.add-form {
+  text-decoration: none;
+  background: cornflowerblue;
+  color: white;
+  padding: 8px;
+  border-radius: 7px;
+}
+.no-border {
+  border: none;
+}
+#myBtn:hover {
+  background-color: rgb(104, 87, 255);
+}
+.active-cyan-4 input[type="search"]:focus:not([readonly]) {
+  border-bottom: 1px solid #4dd0e1;
+  box-shadow: 0 1px 0 0 #4dd0e1;
+}
+.active-cyan input[type="search"] {
+  border-bottom: 1px solid #4dd0e1;
+  box-shadow: 0 1px 0 0 #4dd0e1;
+}
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+.modal-title {
+  line-height: var(--bs-modal-title-line-height) !important;
+  font-size: 1.25rem !important;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.cursor-pointer-last {
+  cursor: pointer;
+  margin-left: 6px;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1124px;
+  }
+}

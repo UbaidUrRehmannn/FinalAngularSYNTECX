@@ -58,10 +58,10 @@ export class LoginComponent implements OnInit {
       .login(this.reactiveForm.value!.number, this.reactiveForm.value.password)
       .subscribe((data: any) => {
         if (data.rescode === 1) {
-          console.log('Data is: ', data);
+          // console.log('Data is: ', data);
           const str = data.data;
           const splits = str.split('|');
-          console.log('Splits value: ', splits);
+          // console.log('Splits value: ', splits);
           localStorage.setItem('User_Name', JSON.stringify(splits[0]));
           this.userName = JSON.stringify(splits[0]);
           localStorage.setItem('User_id', splits[1]);
@@ -70,12 +70,13 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['../employee/shift']);
         } else {
           this.x = data.message;
-          console.log('this.x', this.x);
+          // console.log('this.x', this.x);
         }
         this.y = data.rescode;
         this.tok = localStorage.getItem('Token');
-        console.log('Token from local storage is ', this.tok);
+        // console.log('Token from local storage is ', this.tok);
       });
+      
   }
   hideAlert = () => {
     if (this.y === 1) {
@@ -87,9 +88,9 @@ export class LoginComponent implements OnInit {
   }
   onSubmit = () => {
     this.userLogin();
-    console.log('this.reactiveForm: ', this.reactiveForm);
-    console.log('this.reactiveForm.controls: ', this.reactiveForm.controls);
-    console.log('this.reactiveForm.value: ', this.reactiveForm.value);
+    // console.log('this.reactiveForm: ', this.reactiveForm);
+    // console.log('this.reactiveForm.controls: ', this.reactiveForm.controls);
+    // console.log('this.reactiveForm.value: ', this.reactiveForm.value);
     setTimeout(() => {
       this.dataUpdateSuccess();
     }, 1000);
