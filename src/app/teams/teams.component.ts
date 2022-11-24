@@ -32,10 +32,10 @@ export class TeamsComponent implements OnInit {
     this.getData();
     this.viewAllTeams();
     this.reactiveForm = new FormGroup({
-      teamAdminName: new FormControl(null, Validators.required),
+      teamAdminName: new FormControl(null),
       teamName: new FormControl(null, Validators.required),
       teamDescription: new FormControl(null, Validators.required),
-      teamCreator: new FormControl(null, Validators.required),
+      teamCreator: new FormControl(null),
       teamtimezone: new FormControl(null, Validators.required),
     });
     this.router = router;
