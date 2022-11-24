@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./mathteacher.component.css'],
 })
 export class MathteacherComponent implements OnInit {
-  title = 'Employee Break information';
+  title = 'Break information';
   secondReactiveForm: FormGroup;
   shiftId: any;
   token: any;

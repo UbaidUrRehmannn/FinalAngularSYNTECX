@@ -2,7 +2,7 @@
 *ngIf="y === 0"
 style="display: flex;"
   id="alrclose"
-  class="d-flex justify-content-between align-items-center alert alert-warning alert-dismissible fade show"
+  class="mb-5 d-flex justify-content-between align-items-center alert alert-warning alert-dismissible fade show"
   role="alert"
 >
   <div class=""><strong>OOPS! ERROR:</strong> {{ x }}</div>
@@ -23,7 +23,7 @@ style="display: flex;"
   <form class="form-wrapper" [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
     <div>
       <!-- Email input -->
-      <div class="px-5 d-flex justify-content-between form-outline mb-4">
+      <div class="px-5 d-flex justify-content-between form-outline ">
         <label class="align-self-center form-label" for="number"
           ><b>Email Address:</b></label
         >
@@ -40,20 +40,20 @@ style="display: flex;"
         *ngIf="reactiveForm.get('number')?.errors?.['required'] &&
             reactiveForm.get('number')?.touched
           "
-        class="text-danger"
+        class="text-danger px-5 text-right"
       >
         Phone Number is required
       </p>
       <p
         *ngIf="reactiveForm.get('number')?.errors?.['pattern'] "
-        class="text-danger-long-err"
+        class="text-danger px-5 text-right"
       >
         Phone Number Invalid
       </p>
 
       <!-- Password input -->
       <div
-        class="px-5 d-flex justify-content-between form-outline mb-4 dark:bg-[#4598ee]"
+        class="px-5 d-flex justify-content-between form-outline mt-4 dark:bg-[#4598ee]"
       >
         <label class="align-self-center form-label" for="password"
           ><b>Password:</b></label
@@ -69,33 +69,22 @@ style="display: flex;"
       <p
         *ngIf="reactiveForm.get('password')?.errors?.['required'] &&
         reactiveForm.get('password')?.touched"
-        class="text-danger"
+        class="text-danger px-5 text-right"
       >
         Password is required
       </p>
       <p
         *ngIf="reactiveForm.get('password')?.errors?.['minlength'] "
-        class="text-danger"
+        class="text-danger px-5 text-right"
       >
         Password should be 8 characters long
       </p>
     </div>
 
     <!-- 2 column grid layout for inline styling -->
-    <div class="row mb-4">
+    <div class="row mt-4">
       <div class="col d-flex justify-content-center">
-        <!-- <div class="form-check">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          value=""
-          id="form2Example31"
-          checked
-        />
-        <label class="form-check-label" for="form2Example31">
-          Remember me
-        </label>
-      </div> -->
+        
         <button
           [disabled]="reactiveForm.invalid"
           type="submit"

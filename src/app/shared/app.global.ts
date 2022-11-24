@@ -21,6 +21,12 @@ export class globalVariables {
   public readonly DELETE_BREAK = 'DELETE_BREAK';
   public readonly VIEW_BREAK = 'VIEW_BREAK';
   public readonly UPDATE_BREAK = 'UPDATE_BREAK';
+  public readonly ADD_TEAM = 'ADD_TEAM';
+  public readonly VIEW_ORG_TEAMS = 'VIEW_ORG_TEAMS';
+  public readonly DELETE_TEAM = 'DELETE_TEAM';
+  public readonly UPDATE_TEAM = 'UPDATE_TEAM';
+  public readonly ALL_TEAM_MEMBERS = 'ALL_TEAM_MEMBERS';
+  public readonly VIEW_CHILD_TEAMS = 'VIEW_CHILD_TEAMS';
   PLATFORM_TYPE = 1;
 }
 

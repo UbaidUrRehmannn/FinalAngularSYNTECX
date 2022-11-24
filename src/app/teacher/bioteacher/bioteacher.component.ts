@@ -1,10 +1,9 @@
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ShiftService } from '../../shared/service/shift.service';
-import { BreakService } from '../../shared/service/break.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Options } from '@angular-slider/ngx-slider';
+
 @Component({
   selector: 'app-bioteacher',
   templateUrl: './bioteacher.component.html',
@@ -16,7 +15,7 @@ export class BioteacherComponent implements OnInit {
   userName: any;
   userId: any;
   reactiveForm: FormGroup;
-  // secondReactiveForm: FormGroup;
+
   rows: any;
   router: Router;
   editableDesc: any;
@@ -74,7 +73,7 @@ export class BioteacherComponent implements OnInit {
         this.userName
       )
       .subscribe((res: any) => {
-        console.log('Add Shift DATA = ', res);
+        // console.log('Add Shift DATA = ', res);
         // this.router.navigate(['../teachers/bioteachers']);
         this.dataAdditionSuccess();
         this.viewOrgShift();
@@ -85,7 +84,7 @@ export class BioteacherComponent implements OnInit {
       .viewOrgShift(this.token, this.userId)
       .subscribe((res: any) => {
         this.rows = res.data;
-        console.log(res.data);
+        // console.log(res.data);
         // console.log('View Org Shift DATA = ', res);
       });
   }
@@ -121,7 +120,7 @@ export class BioteacherComponent implements OnInit {
         this.editableEntryId
       )
       .subscribe((res) => {
-        console.log('Response of update shift', res);
+        // console.log('Response of update shift', res);
         this.viewOrgShift();
         this.dataUpdateSuccess();
       });
@@ -130,53 +129,53 @@ export class BioteacherComponent implements OnInit {
     this.shiftServ
       .viewShift(this.token, this.userId, id)
       .subscribe((res: any) => {
-        console.log('ID ID:', id)
-        console.log('Resopnse from shift edit API is', res);
+        // console.log('ID ID:', id)
+        // console.log('Resopnse from shift edit API is', res);
         this.editableDesc = res.data[0].shift_desc;
-        console.log('shift_desc: ', res.data[0].shift_desc);
+        // console.log('shift_desc: ', res.data[0].shift_desc);
 
         this.editableTitle = res.data[0].shift_name;
-        console.log('shift_name: ', res.data[0].shift_name);
+        // console.log('shift_name: ', res.data[0].shift_name);
 
         this.editableStartTime = res.data[0].shift_start_time;
-        console.log('shift_start_time: ', res.data[0].shift_start_time);
+        // console.log('shift_start_time: ', res.data[0].shift_start_time);
 
         this.editableEndTime = res.data[0].shift_end_time;
-        console.log('shift_end_time: ', res.data[0].shift_end_time);
+        // console.log('shift_end_time: ', res.data[0].shift_end_time);
 
         this.editableEntryId = res.data[0].shift_id;
-        console.log('shift_id: ', res.data[0].shift_id);
+        // console.log('shift_id: ', res.data[0].shift_id);
         let patchingVal = {
           title: this.editableTitle,
           startTime: this.editableStartTime,
           description: this.editableDesc,
           endTime: this.editableEndTime,
         };
-        console.log('Patching Values are: ', patchingVal )
+        // console.log('Patching Values are: ', patchingVal )
         this.reactiveForm.patchValue(patchingVal);
       });
-    console.log('Shift edited');
+    // console.log('Shift edited');
   }
   getId(id: any) {
     this.editableEntryId = id;
-    console.log('selected id: ',id)
+    // console.log('selected id: ',id)
   }
   deleteItem() {
     this.shiftServ
       .deleteShift(this.token, this.editableEntryId, this.userId)
       .subscribe((res) => {
-        console.log('deleteItem response', res);
+        // console.log('deleteItem response', res);
         this.viewOrgShift();
         this.dataDeletionSuccess();
       });
-    console.log('Item Deleted');
-    // console.log('ID of selectrd item is: ',id)
+    // console.log('Item Deleted');
+    
   }
   editShift(id: any) {
     this.reversbtn();
     this.viewSelfShift(id);
 
-    console.log('Shift edited');
+    // console.log('Shift edited');
   }
 
   ngOnInit(): void {}

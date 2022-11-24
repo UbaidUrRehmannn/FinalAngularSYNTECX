@@ -1,4 +1,4 @@
-<div class="custom1 card">
+<div *ngIf="removeLogin(); else norand" class="custom1 card">
   <img
     src="../../assets/images/Aboutus-1.jpg"
     class="card-img-top marg"
@@ -15,3 +15,16 @@
     <a *ngIf="removeLogout()" routerLink="/employee/shift" class="btn btn-primary">Go to Shifts</a>
   </div>
 </div>
+<ng-template #norand>
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" [src]="profileImage" alt="Card image cap">
+    <div class="card-body">
+      <h2 class="card-title">{{userName}}</h2>
+      <p class="card-text">You are at homepage be productive and start managing shifts</p>
+
+    </div>
+    <a routerLink="/employee/shift" class="btn btn-primary mb-4">Go to Shifts</a>
+    
+  </div>
+  
+</ng-template>

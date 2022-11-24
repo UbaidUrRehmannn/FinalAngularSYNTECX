@@ -1,9 +1,9 @@
 .card-img-top {
     margin-top: 1rem;
-    height: 350px;
+    height: 140px;
+    width: 223px;
     padding-right: 2rem;
     padding-left: 2rem;
-    border-radius: 123px;
 }
 .custom1{
     width: 90%;
@@ -16,4 +16,7 @@
 }
 .card-body{
     text-align: center;
+}
+.img-custom{
+    width: 100%;
 }
