@@ -77,6 +77,7 @@ export class TeamsComponent implements OnInit {
         console.log('viewOrgTeam Response: ', res);
         this.rows = res.data;
         console.log('rows: ', this.rows);
+        // this.parentTeamId = 
       });
   }
   addNewTeam() {
@@ -87,7 +88,7 @@ export class TeamsComponent implements OnInit {
         '',
         this.reactiveForm.value.teamDescription,
         this.reactiveForm.value.teamName,
-        '',
+        `${Math.round( Math.random()*10000)}`,
         this.reactiveForm.value.teamtimezone
       )
       .subscribe((res) => {

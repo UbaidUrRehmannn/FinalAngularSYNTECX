@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ShiftService } from 'src/app/shared/service/shift.service';
 declare const Chart: any;
 
 @Component({
@@ -7,25 +8,30 @@ declare const Chart: any;
   styleUrls: ['./line-chart.component.css'],
 })
 export class LineChartComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit() {
-    setTimeout(() => {
-      this.createChart();
-    }, 400);
+  rows: any;
+  token: any;
+  userId: any;
+  userName: any;
+  constructor(private shiftServ: ShiftService) {
+    this.getDetails();
+    this.viewOrgShift();
   }
+
+  ngOnInit() {}
   createChart() {
     console.log('Chart come');
     new Chart('chart-2', {
       type: 'line',
       data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+        labels: this.rows.map((row: any) => {
+          return 'Shift Id: ' + row.shift_id;
+        }),
         datasets: [
           {
             backgroundColor: '#7E57C2',
             borderColor: '#7E57C2',
-            data: [-76.97, 46.91, 32.31, -7.19, -9.85, -76.91, -50.36, 42.66],
-            label: 'Dataset',
+            data: this.rows.map((row: any) => row.no_of_breaks),
+            label: 'No. Of Breaks: ',
             fill: 'false',
           },
         ],
@@ -47,9 +53,22 @@ export class LineChartComponent implements OnInit {
         },
         title: {
           display: true,
-          text: 'SALES GRAPH',
+          text: 'Breaks During Each Shift',
         },
       },
     });
+  }
+  getDetails() {
+    this.token = localStorage.getItem('Token');
+    this.userId = localStorage.getItem('User_id');
+    this.userName = localStorage.getItem('User_Name');
+  }
+  viewOrgShift() {
+    this.shiftServ
+      .viewOrgShift(this.token, this.userId)
+      .subscribe((res: any) => {
+        this.rows = res.data;
+        this.createChart();
+      });
   }
 }

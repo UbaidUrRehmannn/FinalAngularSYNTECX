@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PagesRoutingModule } from './pages-routing.module';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { ShiftService } from '../shared/service/shift.service';
 
 
 
@@ -14,6 +15,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
         CommonModule,
         PagesRoutingModule,
         DashboardModule
-    ]
+    ],
+    providers: [ShiftService]
 })
 export class PagesModule { }

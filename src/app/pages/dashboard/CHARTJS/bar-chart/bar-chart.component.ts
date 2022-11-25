@@ -1,47 +1,60 @@
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
+import { ShiftService } from 'src/app/shared/service/shift.service';
+import { TeamService } from 'src/app/shared/service/team.service';
 
 @Component({
   selector: 'app-bar-chart-CJS',
   templateUrl: './bar-chart.component.html',
-  styleUrls: ['./bar-chart.component.css']
+  styleUrls: ['./bar-chart.component.css'],
 })
 export class BarChartComponentCJS implements OnInit {
+  rowsForTemas: any;
+  token: any;
+  userId: any;
+  userName: any;
+  rows: any;
 
-  constructor() { }
-
-  ngOnInit(): void {
-    setTimeout(() => {
-      this.createChart();
-    }, 400);
+  constructor(private shiftServ: ShiftService, private teamServe: TeamService) {
+    this.getDetails();
+    this.viewOrgShift()
+    // this.viewAllTeams();
   }
+
+  ngOnInit(): void {}
   createChart() {
-    const data = [
-      { year: 2010, count: 10 },
-      { year: 2011, count: 20 },
-      { year: 2012, count: 15 },
-      { year: 2013, count: 25 },
-      { year: 2014, count: 22 },
-      { year: 2015, count: 30 },
-      { year: 2016, count: 28 },
-    ];
-  
-    new Chart(
-      'chart-bar-cjs',
-      {
-        type: 'bar',
-        data: {
-          labels: data.map(row => row.year),
-          datasets: [
-            {
-              label: 'Acquisitions by year',
-              data: data.map(row => row.count)
-            }
-          ]
-        }
-      }
-    );
-  };
-
+    new Chart('chart-bar-cjs', {
+      type: 'bar',
+      data: {
+        labels: this.rows.map((row: any) => row.shift_id),
+        datasets: [
+          {
+            label: 'Number of Breaks',
+            data: this.rows.map((row: any) => row.no_of_breaks),
+          },
+        ],
+      },
+    });
+  }
+  getDetails() {
+    this.token = localStorage.getItem('Token');
+    this.userId = localStorage.getItem('User_id');
+    this.userName = localStorage.getItem('User_Name');
+  }
+  viewAllTeams() {
+    this.teamServe
+      .viewOrgTeam(this.token, this.userId)
+      .subscribe((res: any) => {
+        this.rowsForTemas = res.data;
+        console.log('View All Teams DATA = ', this.rowsForTemas);
+      });
+  }
+  viewOrgShift() {
+    this.shiftServ
+      .viewOrgShift(this.token, this.userId)
+      .subscribe((res: any) => {
+        this.rows = res.data;
+        this.createChart();
+      });
+  }
 }
-

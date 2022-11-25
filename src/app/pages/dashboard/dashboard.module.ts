@@ -1,3 +1,5 @@
+import { TeamService } from './../../shared/service/team.service';
+import { BreakService } from './../../shared/service/break.service';
 import { BarChartComponentCJS } from './CHARTJS/bar-chart/bar-chart.component';
 import { DashboardComponent } from './dashboard.component';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -13,6 +15,8 @@ import { AreaChartComponent } from './area-chart/area-chart.component';
 import { LineChartComponentCJS } from './CHARTJS/line-chart/line-chart.component';
 import { RadarChartComponent } from './CHARTJS/radar-chart/radar-chart.component';
 import { PolarareaChartComponent } from './CHARTJS/polararea-chart/polararea-chart.component';
+import { ShiftService } from 'src/app/shared/service/shift.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [DashboardComponent, BarChartComponent, LineChartComponent, PieChartComponent, AreaChartComponent, BarChartComponentCJS, LineChartComponentCJS, RadarChartComponent, PolarareaChartComponent],
@@ -23,7 +27,10 @@ import { PolarareaChartComponent } from './CHARTJS/polararea-chart/polararea-cha
     FormsModule,
     NgChartsModule,
     ChartModule,
+    HttpClientModule,
   ],
+  providers: [ShiftService, BreakService, TeamService],
+
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DashboardModule {}

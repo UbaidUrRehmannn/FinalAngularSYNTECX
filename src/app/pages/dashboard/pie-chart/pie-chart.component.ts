@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TeamService } from 'src/app/shared/service/team.service';
 declare const Chart: any;
 
 @Component({
@@ -7,21 +8,34 @@ declare const Chart: any;
   styleUrls: ['./pie-chart.component.css'],
 })
 export class PieChartComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit() {
-    setTimeout(() => {
-      this.createChart();
-    }, 400);
+  rowsForTemas: any;
+  token: any;
+  userId: any;
+  constructor(private teamServe: TeamService) {
+    this.getDetails();
+    this.viewAllTeams();
   }
+
+  ngOnInit() {}
   createChart() {
+    console.log('1');
     new Chart('piechart', {
       type: 'doughnut',
       data: {
-        labels: ['New Users ', 'Old Users'],
+        labels: ['Organization ', 'People'],
         datasets: [
           {
-            data: [46.97, 46.91, 24.56],
+            // team_timezone_type
+            // data: this.rowsForTemas.map((row: any) => row.team_timezone_type),
+            data: this.rowsForTemas.map((row: any) => {
+              if (row.team_timezone_type === '1') {
+                return '1';
+              } else  {
+                return '0';
+              }
+            }),
+
+            // data: [46.97, 46.91, 24.56],
 
             backgroundColor: [
               'rgba(255, 99, 132,.7)',
@@ -49,9 +63,22 @@ export class PieChartComponent implements OnInit {
         },
         title: {
           display: true,
-          text: 'LEAD GRAPH',
+          text: 'Teams in People & Organization',
         },
       },
     });
+  }
+  getDetails() {
+    this.token = localStorage.getItem('Token');
+    this.userId = localStorage.getItem('User_id');
+  }
+  viewAllTeams() {
+    this.teamServe
+      .viewOrgTeam(this.token, this.userId)
+      .subscribe((res: any) => {
+        this.rowsForTemas = res.data;
+        console.log('View All Teams DATA = ', this.rowsForTemas);
+        this.createChart();
+      });
   }
 }
