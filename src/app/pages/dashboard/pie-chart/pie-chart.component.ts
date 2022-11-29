@@ -11,6 +11,8 @@ export class PieChartComponent implements OnInit {
   rowsForTemas: any;
   token: any;
   userId: any;
+  one = 0
+  two = 0
   constructor(private teamServe: TeamService) {
     this.getDetails();
     this.viewAllTeams();
@@ -27,15 +29,19 @@ export class PieChartComponent implements OnInit {
           {
             // team_timezone_type
             // data: this.rowsForTemas.map((row: any) => row.team_timezone_type),
-            data: this.rowsForTemas.map((row: any) => {
-              if (row.team_timezone_type === '1') {
-                return '1';
-              } else  {
-                return '0';
-              }
-            }),
 
-            // data: [46.97, 46.91, 24.56],
+            // data: this.rowsForTemas.map((row: any) => {
+            //   let c = 452;
+            //   let x = 0;
+            //   if (row.team_timezone_type === '1') {
+            //     return c;
+            //   } else if (row.team_timezone_type === '2') {
+            //     return '0';
+            //   }
+            //   else return
+            // }),
+
+            data: [this.one, this.two],
 
             backgroundColor: [
               'rgba(255, 99, 132,.7)',
@@ -52,7 +58,7 @@ export class PieChartComponent implements OnInit {
           },
         },
         legend: {
-          display: false,
+          display: true,
         },
         maintainAspectRatio: false,
         responsive: true,
@@ -73,12 +79,28 @@ export class PieChartComponent implements OnInit {
     this.userId = localStorage.getItem('User_id');
   }
   viewAllTeams() {
+    
     this.teamServe
       .viewOrgTeam(this.token, this.userId)
       .subscribe((res: any) => {
         this.rowsForTemas = res.data;
         console.log('View All Teams DATA = ', this.rowsForTemas);
+        this.getLength()
         this.createChart();
       });
+  }
+  getLength() {
+    this.rowsForTemas.map((res: any) => {
+    
+      res.team_timezone_type;
+      if ( res.team_timezone_type === '1') {
+         this.one++;
+        
+      } else if (res.team_timezone_type === '2') {
+        this.two++;
+      } else console.log('Most outer else');
+    });
+    console.log('one:' , this.one)
+    console.log('two:' , this.two)
   }
 }

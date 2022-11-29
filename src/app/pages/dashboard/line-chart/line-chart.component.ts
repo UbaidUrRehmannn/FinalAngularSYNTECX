@@ -68,6 +68,7 @@ export class LineChartComponent implements OnInit {
       .viewOrgShift(this.token, this.userId)
       .subscribe((res: any) => {
         this.rows = res.data;
+        console.log(this.rows)
         this.createChart();
       });
   }
