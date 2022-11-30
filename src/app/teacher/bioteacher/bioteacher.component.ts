@@ -84,6 +84,7 @@ export class BioteacherComponent implements OnInit {
       .viewOrgShift(this.token, this.userId)
       .subscribe((res: any) => {
         this.rows = res.data;
+        
         // console.log(res.data);
         // console.log('View Org Shift DATA = ', res);
       });
